@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>新聞翻譯｜市場白話文</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">市</span><span>市場白話文</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="./index.html">儀表板</a>
+        <a href="./learn.html">學習地圖</a>
+        <a href="./dictionary.html">白話字典</a>
+        <a href="./tools.html">工具實驗室</a>
+        <a href="./news.html">新聞翻譯</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <h1>新聞翻譯</h1>
+          <p>市場每天講很多黑話，這裡把它拆成原文、白話、可能影響。</p>
+        </div>
+      </section>
+
+      <section class="news-section" id="news">
+        <div class="news-layout">
+          <div class="news-list" aria-label="新聞主題">
+            <button class="news-item active" type="button" data-news="rates">
+              <span>央行與利率</span>
+              <strong>高利率維持更久</strong>
+            </button>
+            <button class="news-item" type="button" data-news="inflation">
+              <span>通膨</span>
+              <strong>物價降溫但還沒結束</strong>
+            </button>
+            <button class="news-item" type="button" data-news="earnings">
+              <span>企業財報</span>
+              <strong>營收成長但毛利下滑</strong>
+            </button>
+          </div>
+          <article class="translation-panel" id="translation-panel" aria-live="polite">
+            <h3>高利率維持更久</h3>
+            <dl>
+              <div><dt>原文</dt><dd>央行暗示政策利率可能在高檔停留更長時間。</dd></div>
+              <div><dt>白話</dt><dd>借錢成本不會太快下降，企業和房貸族都會感到壓力。</dd></div>
+              <div><dt>可能影響</dt><dd>股票估值容易被壓縮，短天期債券利息較有吸引力，美元可能偏強。</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>市場白話文</strong><p>金融教育內容，不構成投資建議。</p></div>
+      <a href="./index.html">回儀表板</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

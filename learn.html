@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>學習地圖｜市場白話文</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">市</span><span>市場白話文</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="./index.html">儀表板</a>
+        <a href="./learn.html">學習地圖</a>
+        <a href="./dictionary.html">白話字典</a>
+        <a href="./tools.html">工具實驗室</a>
+        <a href="./news.html">新聞翻譯</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <h1>學習地圖</h1>
+          <p>不是所有人都要從 K 線開始。先選你現在的問題，再進入對應路線。</p>
+        </div>
+      </section>
+
+      <section class="map-section" id="learning-map">
+        <div class="section-heading">
+          <h2>選一條路開始</h2>
+          <p>每條路都把觀念排成 4 站，先建立語言，再慢慢進入市場判斷。</p>
+        </div>
+        <div class="map-layout">
+          <div class="goal-panel" aria-label="選擇學習目標">
+            <button class="goal-button active" type="button" data-goal="zero">完全新手</button>
+            <button class="goal-button" type="button" data-goal="news">看懂新聞</button>
+            <button class="goal-button" type="button" data-goal="portfolio">建立投資組合</button>
+            <button class="goal-button" type="button" data-goal="derivatives">期貨與選擇權</button>
+          </div>
+          <article class="roadmap-panel" id="roadmap-panel" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="learning-module" id="futures">
+        <div class="section-heading">
+          <h2>同一個概念，三種深度</h2>
+          <p>每個主題都能從一句白話開始，也能一路走到公式、風險和策略。</p>
+        </div>
+        <div class="module-grid">
+          <article class="concept-card">
+            <div class="concept-top">
+              <span class="concept-title">期貨</span>
+              <span class="concept-code">FUTURES</span>
+            </div>
+            <div class="level-tabs" role="tablist" aria-label="期貨理解程度">
+              <button class="level-tab active" type="button" data-level="beginner">初學者</button>
+              <button class="level-tab" type="button" data-level="intermediate">進階</button>
+              <button class="level-tab" type="button" data-level="advanced">高手</button>
+            </div>
+            <div class="level-panel" id="level-panel" aria-live="polite">
+              <h3>先約好未來價格</h3>
+              <p>想像你跟早餐店老闆說：下個月雞蛋不管漲到多少，我都用今天講好的價格買。如果雞蛋大漲，你省到；如果雞蛋變便宜，你就買貴了。</p>
+              <ul>
+                <li>重點：期貨是未來交易的約定。</li>
+                <li>風險：價格走反，虧損會很快放大。</li>
+              </ul>
+            </div>
+          </article>
+          <div class="module-notes">
+            <article><h3>白話先行</h3><p>每篇文章先用生活比喻，再補市場規則，不讓術語卡在門口。</p></article>
+            <article><h3>風險放前面</h3><p>先說你可能怎麼輸，再談你可能怎麼賺，避免新手被漂亮名詞帶走。</p></article>
+            <article><h3>高手也能讀</h3><p>進階段落保留殖利率曲線、久期、保證金、避險比例等硬知識。</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>市場白話文</strong><p>金融教育內容，不構成投資建議。</p></div>
+      <a href="./index.html">回儀表板</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

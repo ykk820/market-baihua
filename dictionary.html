@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>白話字典｜市場白話文</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">市</span><span>市場白話文</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="./index.html">儀表板</a>
+        <a href="./learn.html">學習地圖</a>
+        <a href="./dictionary.html">白話字典</a>
+        <a href="./tools.html">工具實驗室</a>
+        <a href="./news.html">新聞翻譯</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <h1>白話字典</h1>
+          <p>金融名詞先翻成人話，再補上怎麼賺、怎麼賠和最容易誤會的地方。</p>
+        </div>
+      </section>
+
+      <section class="dictionary-section" id="dictionary">
+        <div class="dictionary-toolbar">
+          <input id="term-search" type="search" placeholder="搜尋：股票、債券、期貨、通膨、槓桿..." aria-label="搜尋金融名詞" />
+          <div class="term-filters" aria-label="分類篩選">
+            <button class="filter-button active" type="button" data-filter="all">全部</button>
+            <button class="filter-button" type="button" data-filter="stock">股票</button>
+            <button class="filter-button" type="button" data-filter="futures">期貨</button>
+            <button class="filter-button" type="button" data-filter="bond">債券</button>
+            <button class="filter-button" type="button" data-filter="macro">總經</button>
+            <button class="filter-button" type="button" data-filter="saved">收藏 <span id="saved-count">0</span></button>
+          </div>
+        </div>
+        <div class="dictionary-stats" id="dictionary-stats"></div>
+        <div class="term-grid" id="term-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>市場白話文</strong><p>金融教育內容，不構成投資建議。</p></div>
+      <a href="./index.html">回儀表板</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

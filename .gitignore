@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.wrangler/
+.DS_Store
+*.log
+deployed-*.png
+v*-check.png
+multipage-*.png

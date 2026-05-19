@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>工具實驗室｜市場白話文</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">市</span><span>市場白話文</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="./index.html">儀表板</a>
+        <a href="./learn.html">學習地圖</a>
+        <a href="./dictionary.html">白話字典</a>
+        <a href="./tools.html">工具實驗室</a>
+        <a href="./news.html">新聞翻譯</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div>
+          <h1>工具實驗室</h1>
+          <p>用比較、推演和情境翻譯練習判斷，而不是只背金融名詞。</p>
+        </div>
+      </section>
+
+      <section class="product-section" id="product-lab">
+        <div class="section-heading">
+          <h2>商品比較室</h2>
+          <p>股票、ETF、債券、期貨、選擇權不是誰比較厲害，而是規則、風險和用途不同。</p>
+        </div>
+        <div class="product-layout">
+          <div class="product-list" id="product-list" aria-label="金融商品清單"></div>
+          <article class="product-panel" id="product-panel" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="risk-section" id="risk-lab">
+        <div class="section-heading">
+          <h2>風險實驗室</h2>
+          <p>先看懂會怎麼輸，才有資格談怎麼贏。</p>
+        </div>
+        <div class="risk-grid">
+          <article class="risk-card">
+            <h3>槓桿滑桿</h3>
+            <label for="leverage-range">投入 10 萬，槓桿倍數</label>
+            <input id="leverage-range" type="range" min="1" max="10" value="3" />
+            <p class="risk-number"><span id="leverage-value">3</span> 倍槓桿</p>
+            <p id="leverage-result">市場反向 5%，帳面約虧 15,000 元。</p>
+          </article>
+          <article class="risk-card scenario-card">
+            <h3>總經情境翻譯器</h3>
+            <label for="scenario-select">選一個市場句子</label>
+            <select id="scenario-select">
+              <option value="rate-hike">央行升息</option>
+              <option value="rate-cut">央行降息</option>
+              <option value="oil-up">油價上漲</option>
+              <option value="usd-strong">美元走強</option>
+            </select>
+            <div class="scenario-result" id="scenario-result" aria-live="polite"></div>
+          </article>
+          <article class="risk-card" id="quiz">
+            <h3>一題小測驗</h3>
+            <p class="quiz-question">央行升息時，已發行的低利率債券價格通常會怎樣？</p>
+            <div class="quiz-options">
+              <button type="button" data-correct="false">上漲，因為利率變高</button>
+              <button type="button" data-correct="true">下跌，因為新債券更有吸引力</button>
+              <button type="button" data-correct="false">不變，債券價格固定</button>
+            </div>
+            <p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>市場白話文</strong><p>金融教育內容，不構成投資建議。</p></div>
+      <a href="./index.html">回儀表板</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
