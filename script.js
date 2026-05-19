@@ -282,6 +282,50 @@ const localDailyFallback = {
   marketNote: "今天先挑一個你常看到的市場詞，把它翻成一句生活語言。",
 };
 
+function getTaipeiDateKey(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function getDateSeed(dateKey) {
+  return dateKey.split("").reduce((total, char) => total + char.charCodeAt(0), 0);
+}
+
+function getLocalDailyPayload() {
+  const todayKey = getTaipeiDateKey();
+  const seed = getDateSeed(todayKey);
+  const term = terms[seed % terms.length] || terms[0];
+  const distractorOne = terms[(seed + 5) % terms.length] || terms[1];
+  const distractorTwo = terms[(seed + 11) % terms.length] || terms[2];
+
+  if (!term) return localDailyFallback;
+
+  return {
+    source: "內建每日輪替題庫",
+    apiMode: "local_rotating",
+    dailyTerm: {
+      term: term.term,
+      category: term.label,
+      plain: term.plain,
+      analogy: term.detail,
+      risk: term.pitfall,
+    },
+    dailyQuiz: {
+      question: `關於「${term.term}」，哪一句比較接近市場白話文的理解？`,
+      options: [term.plain, distractorOne.plain, distractorTwo.plain],
+      answerIndex: 0,
+      explanation: term.sentence,
+    },
+    marketNote: `今天的詞由本機題庫依日期輪替：${todayKey}。`,
+  };
+}
+
 const learnerRecommendations = {
   beginner: "今天先讀每日術語，再收藏 2 個白話字典詞。目標不是背名詞，而是能用自己的話說一次。",
   intermediate: "今天看一則新聞翻譯，再用情境翻譯器想一次：這件事會先影響誰的成本或收入？",
@@ -427,7 +471,7 @@ const quizFeedback = document.querySelector("#quiz-feedback");
 
 let activeFilter = "all";
 let savedTerms = readJsonStorage("marketBaihua.savedTerms", []);
-let dailyPayload = localDailyFallback;
+let dailyPayload = getLocalDailyPayload();
 
 navButton?.addEventListener("click", () => {
   const isOpen = nav?.classList.toggle("open");
@@ -570,6 +614,7 @@ termGrid?.addEventListener("click", (event) => {
 newsButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selected = translations[button.dataset.news || "rates"];
+    if (!translationPanel) return;
     newsButtons.forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
     translationPanel.innerHTML = `
@@ -584,6 +629,7 @@ newsButtons.forEach((button) => {
 });
 
 function updateLeverage() {
+  if (!leverageRange || !leverageValue || !leverageResult) return;
   const leverage = Number(leverageRange?.value || 3);
   const loss = 100000 * 0.05 * leverage;
   leverageValue.textContent = String(leverage);
@@ -676,18 +722,27 @@ quizButtons.forEach((button) => {
     quizButtons.forEach((item) => item.classList.remove("correct", "wrong"));
     const isCorrect = button.dataset.correct === "true";
     button.classList.add(isCorrect ? "correct" : "wrong");
-    quizFeedback.textContent = isCorrect
-      ? "答對了。新債券利率更高，舊債券比較不香，價格通常會下跌。"
-      : "再想一次：新的債券利息變高時，舊的低利率債券通常要降價才有人買。";
+    if (quizFeedback) {
+      quizFeedback.textContent = isCorrect
+        ? "答對了。新債券利率更高，舊債券比較不香，價格通常會下跌。"
+        : "再想一次：新的債券利息變高時，舊的低利率債券通常要降價才有人買。";
+    }
   });
 });
 
 function renderDailyCard(payload) {
   if (!dailyCard) return;
-  const term = payload.dailyTerm || localDailyFallback.dailyTerm;
-  const quiz = payload.dailyQuiz || localDailyFallback.dailyQuiz;
-  const todayKey = new Date().toISOString().slice(0, 10);
+  const fallback = getLocalDailyPayload();
+  const term = payload.dailyTerm || fallback.dailyTerm;
+  const quiz = payload.dailyQuiz || fallback.dailyQuiz;
+  const todayKey = getTaipeiDateKey();
   const isRead = localStorage.getItem("marketBaihua.dailyRead") === todayKey;
+  const modeLabel =
+    payload.apiMode === "external_cached"
+      ? "外部 API + 邊緣快取"
+      : payload.apiMode === "local_rotating"
+        ? "內建每日輪替"
+        : "內建備援題庫";
 
   dailyCard.innerHTML = `
     <div class="daily-card-top">
@@ -716,7 +771,7 @@ function renderDailyCard(payload) {
       <p class="daily-quiz-feedback" aria-live="polite"></p>
     </div>
     <div class="api-footnote">
-      <span>模式：${payload.apiMode === "external_cached" ? "外部 API + 邊緣快取" : "內建輪替 + 邊緣快取"}</span>
+      <span>模式：${modeLabel}</span>
       <span>${isRead ? "今日已讀" : "尚未標記"}</span>
     </div>
   `;
@@ -732,7 +787,7 @@ dailyCard?.addEventListener("click", (event) => {
   const answer = Number(quizBox?.dataset.answer || 0);
   const selected = Number(optionButton.dataset.index || 0);
   const feedback = quizBox?.querySelector(".daily-quiz-feedback");
-  const explanation = dailyPayload.dailyQuiz?.explanation || localDailyFallback.dailyQuiz.explanation;
+  const explanation = dailyPayload.dailyQuiz?.explanation || getLocalDailyPayload().dailyQuiz.explanation;
 
   quizBox?.querySelectorAll("button").forEach((button) => {
     button.classList.remove("correct", "wrong");
@@ -756,14 +811,14 @@ async function loadDailyBrief() {
     if (response.status === 429) {
       const retryAfter = response.headers.get("Retry-After") || "60";
       dailyPayload = {
-        ...localDailyFallback,
+        ...getLocalDailyPayload(),
         marketNote: `API 目前達到訪問限制，約 ${retryAfter} 秒後可以再試。先用本機備援題庫繼續學。`,
       };
     } else if (response.ok) {
       dailyPayload = await response.json();
     }
   } catch {
-    dailyPayload = localDailyFallback;
+    dailyPayload = getLocalDailyPayload();
   }
 
   renderDailyCard(dailyPayload);
@@ -778,7 +833,7 @@ function renderLearnerPlan() {
 learnerLevel?.addEventListener("change", renderLearnerPlan);
 
 markDailyRead?.addEventListener("click", () => {
-  const todayKey = new Date().toISOString().slice(0, 10);
+  const todayKey = getTaipeiDateKey();
   localStorage.setItem("marketBaihua.dailyRead", todayKey);
   renderDailyCard(dailyPayload);
 });
