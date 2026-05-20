@@ -22,7 +22,7 @@
     <title>市場白話文｜學習儀表板</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="./assets/market-desk.jpg" as="image" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20260520-sector" />
+    <link rel="stylesheet" href="./styles.css?v=20260520-formal" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -55,6 +55,11 @@
             這裡不是明牌站，也不是考試講義。它是一套把市場語言翻成人話的學習系統：
             先懂商品、再懂風險，最後才談策略。
           </p>
+          <div class="platform-stats" aria-label="網站內容概況">
+            <div><strong>6</strong><span>股票產業分類</span></div>
+            <div><strong>20+</strong><span>核心金融觀念</span></div>
+            <div><strong>4</strong><span>學習工作區</span></div>
+          </div>
           <div class="hero-actions" aria-label="開始學習">
             <a class="button button-primary" href="./learn.html">開始學習路線</a>
             <a class="button button-secondary" href="./sectors.html">產業拆解教室</a>
@@ -66,17 +71,35 @@
           </a>
         </div>
 
-        <div class="hero-media" aria-label="金融學習桌面示意圖">
-          <img
-            src="./assets/market-desk.jpg"
-            width="1804"
-            height="872"
-            fetchpriority="high"
-            decoding="async"
-            alt="有筆記本、計算機與市場圖表的金融學習桌面"
-          />
-          <div class="quote-strip">
-            <p>「金融不是把名詞背熟，而是知道每個工具會怎麼幫你，也會怎麼傷你。」</p>
+        <div class="learning-cockpit" aria-label="市場白話文學習儀表板預覽">
+          <div class="cockpit-top">
+            <div>
+              <span>今日學習儀表板</span>
+              <strong>先懂規則，再看市場</strong>
+            </div>
+            <a href="./sectors.html">進入產業教室</a>
+          </div>
+          <div class="cockpit-daily">
+            <span>今日白話</span>
+            <h2>波動率</h2>
+            <p>價格上下晃動的程度。不是敵人，沒準備才是。</p>
+          </div>
+          <div class="cockpit-grid">
+            <article>
+              <span>學習隊列</span>
+              <strong>半導體上下游</strong>
+              <p>IC 設計、晶圓代工、封測、設備材料、品牌終端。</p>
+            </article>
+            <article>
+              <span>護城河檢查</span>
+              <strong>技術門檻</strong>
+              <p>做得到，不代表做得穩、做得便宜、做得大量。</p>
+            </article>
+          </div>
+          <div class="cockpit-progress">
+            <div><span>已收藏詞彙</span><strong>8</strong></div>
+            <div><span>本週進度</span><strong>62%</strong></div>
+            <div><span>風險提醒</span><strong>先看最壞情境</strong></div>
           </div>
         </div>
       </section>
@@ -111,8 +134,8 @@
 
       <section class="dashboard-section">
         <div class="section-heading">
-          <h2>你今天想解決什麼？</h2>
-          <p>把網站拆成幾個學習工作區，不用再一路滑到底找東西。</p>
+          <h2>核心學習區</h2>
+          <p>把金融商品、產業分析、風險工具與市場新聞拆成清楚的工作區。</p>
         </div>
         <div class="dashboard-grid">
           <a class="workspace-card" href="./learn.html">
@@ -152,6 +175,6 @@
       <a href="#top">回到上方</a>
     </footer>
 
-    <script src="./script.js?v=20260520-sector"></script>
+    <script src="./script.js?v=20260520-formal"></script>
   </body>
 </html>
