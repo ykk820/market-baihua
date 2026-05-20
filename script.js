@@ -1019,6 +1019,8 @@ dailyCard?.addEventListener("click", (event) => {
 });
 
 async function loadDailyBrief() {
+  if (!dailyCard) return;
+
   try {
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 2600);

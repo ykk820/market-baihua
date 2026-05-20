@@ -19,10 +19,9 @@
     <meta property="og:url" content="https://market-baihua.onrender.com/" />
     <meta property="og:image" content="https://market-baihua.onrender.com/assets/market-desk.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>市場白話文｜學習儀表板</title>
+    <title>市場白話文｜金融學習入口</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="./assets/market-desk.jpg" as="image" fetchpriority="high" />
-    <link rel="stylesheet" href="./styles.css?v=20260520-formal" />
+    <link rel="stylesheet" href="./styles.css?v=20260520-portal2" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -37,7 +36,7 @@
         <span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="主要導覽">
-        <a href="./index.html">儀表板</a>
+        <a href="./index.html">首頁</a>
         <a href="./learn.html">學習地圖</a>
         <a href="./sectors.html">產業教室</a>
         <a href="./dictionary.html">白話字典</a>
@@ -46,124 +45,54 @@
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero-section dashboard-hero">
-        <div class="hero-copy" id="main-content" tabindex="-1">
+    <main id="top" class="portal-main">
+      <section class="portal-hero" id="main-content" tabindex="-1">
+        <div class="portal-copy">
           <h1>市場白話文</h1>
-          <p class="hero-line">看懂市場，不必先變成金融人。</p>
-          <p class="hero-text">
-            這裡不是明牌站，也不是考試講義。它是一套把市場語言翻成人話的學習系統：
-            先懂商品、再懂風險，最後才談策略。
-          </p>
-          <div class="platform-stats" aria-label="網站內容概況">
-            <div><strong>6</strong><span>股票產業分類</span></div>
-            <div><strong>20+</strong><span>核心金融觀念</span></div>
-            <div><strong>4</strong><span>學習工作區</span></div>
-          </div>
-          <div class="hero-actions" aria-label="開始學習">
-            <a class="button button-primary" href="./learn.html">開始學習路線</a>
-            <a class="button button-secondary" href="./sectors.html">產業拆解教室</a>
-            <a class="button button-secondary" href="./dictionary.html">查白話字典</a>
-          </div>
-          <a class="hero-daily-link" href="#daily">
-            <span>今日白話</span>
-            <strong>每天自動換一個市場詞；API 可用時走快取與訪問限制，離線也有本機輪替。</strong>
-          </a>
+          <p>把股票、期貨、債券、產業與市場新聞翻成初學者也能理解的人話。</p>
         </div>
-
-        <div class="learning-cockpit" aria-label="市場白話文學習儀表板預覽">
-          <div class="cockpit-top">
-            <div>
-              <span>今日學習儀表板</span>
-              <strong>先懂規則，再看市場</strong>
-            </div>
-            <a href="./sectors.html">進入產業教室</a>
-          </div>
-          <div class="cockpit-daily">
-            <span>今日白話</span>
-            <h2>波動率</h2>
-            <p>價格上下晃動的程度。不是敵人，沒準備才是。</p>
-          </div>
-          <div class="cockpit-grid">
-            <article>
-              <span>學習隊列</span>
-              <strong>半導體上下游</strong>
-              <p>IC 設計、晶圓代工、封測、設備材料、品牌終端。</p>
-            </article>
-            <article>
-              <span>護城河檢查</span>
-              <strong>技術門檻</strong>
-              <p>做得到，不代表做得穩、做得便宜、做得大量。</p>
-            </article>
-          </div>
-          <div class="cockpit-progress">
-            <div><span>已收藏詞彙</span><strong>8</strong></div>
-            <div><span>本週進度</span><strong>62%</strong></div>
-            <div><span>風險提醒</span><strong>先看最壞情境</strong></div>
-          </div>
-        </div>
+        <aside class="portal-note">
+          <strong>不是明牌站</strong>
+          <p>這裡先教你看懂規則、商業模式與風險，再自己判斷要不要投資。</p>
+        </aside>
       </section>
 
-      <section class="daily-section dashboard-band" id="daily">
-        <div class="section-heading">
-          <h2>今日白話</h2>
-          <p>每天一個市場詞、一個風險提醒、一題小測驗。先建立回訪節奏。</p>
-        </div>
-        <div class="daily-layout">
-          <article class="daily-card" id="daily-card" aria-live="polite">
-            <div class="loading-line"></div>
-            <div class="loading-line short"></div>
-          </article>
-          <aside class="habit-panel">
-            <h3>你的學習節奏</h3>
-            <label for="learner-level">目前程度</label>
-            <select id="learner-level">
-              <option value="beginner">初學者：先聽懂人話</option>
-              <option value="intermediate">進階：想看懂市場連動</option>
-              <option value="advanced">高手：要看風險與策略</option>
-            </select>
-            <div class="habit-result" id="habit-result">
-              今天先讀白話字典 2 個詞，再做 1 題風險測驗。
-            </div>
-            <button class="button button-secondary full-button" type="button" id="mark-daily-read">
-              標記今日已讀
-            </button>
-          </aside>
-        </div>
-      </section>
-
-      <section class="dashboard-section">
-        <div class="section-heading">
-          <h2>核心學習區</h2>
-          <p>把金融商品、產業分析、風險工具與市場新聞拆成清楚的工作區。</p>
-        </div>
-        <div class="dashboard-grid">
-          <a class="workspace-card" href="./learn.html">
-            <span>01</span>
-            <h3>學習地圖</h3>
-            <p>從完全新手、看懂新聞、投資組合、衍生性商品四條路開始。</p>
-          </a>
-          <a class="workspace-card" href="./dictionary.html">
-            <span>02</span>
-            <h3>白話字典</h3>
-            <p>20 個核心觀念，每個都有怎麼賺、怎麼賠、常見誤會。</p>
-          </a>
-          <a class="workspace-card" href="./sectors.html">
-            <span>03</span>
-            <h3>產業教室</h3>
-            <p>拆生技 FDA、晶片上下游、金融利差與各產業護城河。</p>
-          </a>
-          <a class="workspace-card" href="./tools.html">
-            <span>04</span>
-            <h3>工具實驗室</h3>
-            <p>商品比較、槓桿推演、總經情境翻譯，練習判斷而不是背答案。</p>
-          </a>
-          <a class="workspace-card" href="./news.html">
-            <span>05</span>
-            <h3>新聞翻譯</h3>
-            <p>把央行、通膨、財報新聞拆成原文、白話、可能影響。</p>
-          </a>
-        </div>
+      <section class="portal-categories" aria-label="網站分類入口">
+        <a class="portal-card primary" href="./learn.html">
+          <span>01</span>
+          <h2>學習地圖</h2>
+          <p>不知道從哪開始，就先選你的程度與目標。</p>
+          <div><small>新手入門</small><small>投資組合</small><small>期貨選擇權</small></div>
+          <strong>進入分類</strong>
+        </a>
+        <a class="portal-card" href="./sectors.html">
+          <span>02</span>
+          <h2>產業教室</h2>
+          <p>拆股票分類、上下游、關鍵指標與護城河。</p>
+          <div><small>生技 FDA</small><small>半導體供應鏈</small><small>金融利差</small></div>
+          <strong>進入分類</strong>
+        </a>
+        <a class="portal-card" href="./dictionary.html">
+          <span>03</span>
+          <h2>白話字典</h2>
+          <p>把常見金融術語翻成生活語言。</p>
+          <div><small>股票</small><small>債券</small><small>總經</small></div>
+          <strong>進入分類</strong>
+        </a>
+        <a class="portal-card" href="./tools.html">
+          <span>04</span>
+          <h2>工具實驗室</h2>
+          <p>用互動工具練習商品比較與風險推演。</p>
+          <div><small>槓桿試算</small><small>商品比較</small><small>情境翻譯</small></div>
+          <strong>進入分類</strong>
+        </a>
+        <a class="portal-card" href="./news.html">
+          <span>05</span>
+          <h2>新聞翻譯</h2>
+          <p>把市場新聞拆成原文、白話與可能影響。</p>
+          <div><small>央行</small><small>通膨</small><small>財報</small></div>
+          <strong>進入分類</strong>
+        </a>
       </section>
     </main>
 
@@ -172,9 +101,9 @@
         <strong>市場白話文</strong>
         <p>金融教育內容，不構成投資建議。先懂規則，再做決定。</p>
       </div>
-      <a href="#top">回到上方</a>
+      <a href="./learn.html">開始學習</a>
     </footer>
 
-    <script src="./script.js?v=20260520-formal"></script>
+    <script src="./script.js?v=20260520-portal2"></script>
   </body>
 </html>
