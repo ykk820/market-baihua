@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="用白話拆解股票產業分類、上下游、關鍵指標與護城河。"
+    />
+    <title>產業拆解教室｜市場白話文</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#sector-classroom">跳到主要內容</a>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="市場白話文首頁">
+        <span class="brand-mark" aria-hidden="true">市</span>
+        <span>市場白話文</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="主要導覽">
+        <a href="./index.html">儀表板</a>
+        <a href="./learn.html">學習地圖</a>
+        <a href="./sectors.html">產業教室</a>
+        <a href="./dictionary.html">白話字典</a>
+        <a href="./tools.html">工具實驗室</a>
+        <a href="./news.html">新聞翻譯</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="sector-hero">
+        <div class="sector-hero-copy">
+          <h1>產業拆解教室</h1>
+          <p>
+            股票不只是代號。先知道一家公司站在產業鏈哪裡、靠什麼賺錢、護城河能不能守住，
+            才比較不會只被題材牽著走。
+          </p>
+          <div class="sector-hero-actions">
+            <a class="button button-primary" href="#sector-classroom">開始拆產業</a>
+            <a class="button button-secondary" href="#moat-method">看護城河方法</a>
+          </div>
+        </div>
+        <aside class="sector-brief">
+          <strong>閱讀順序</strong>
+          <ol>
+            <li>先看產業鏈：誰供應誰，誰最有議價力。</li>
+            <li>再看關鍵指標：真正會改變估值的數字。</li>
+            <li>最後看護城河：優勢能不能被時間保護。</li>
+          </ol>
+        </aside>
+      </section>
+
+      <section class="sector-classroom" id="sector-classroom">
+        <div class="section-heading">
+          <h2>選一個產業開始</h2>
+          <p>每個產業都用同一套框架：白話定位、上下游、關鍵指標、護城河、風險雷達。</p>
+        </div>
+        <div class="sector-shell">
+          <aside class="sector-sidebar" aria-label="股票產業分類">
+            <div class="sector-tabs" id="sector-tabs"></div>
+          </aside>
+          <article class="sector-board" id="sector-board" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="moat-method" id="moat-method">
+        <div class="section-heading">
+          <h2>護城河不是口號，是一組檢查題</h2>
+          <p>同樣叫龍頭，有些是技術真的難追，有些只是景氣順風。先拆來源，再看會不會失效。</p>
+        </div>
+        <div class="moat-grid">
+          <article>
+            <span>01</span>
+            <h3>技術門檻</h3>
+            <p>別只問產品酷不酷，要問良率、專利、人才、製程經驗能不能被快速複製。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>客戶黏著</h3>
+            <p>客戶換供應商的成本越高，公司的議價力越穩。反過來，客戶太集中也會變風險。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>成本優勢</h3>
+            <p>規模、採購、產能利用率能讓同樣產品賺更多，但景氣反轉時也要看固定成本壓力。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>法規與認證</h3>
+            <p>生技、金融、能源常靠許可與認證建立門檻；但政策改變也可能直接改寫遊戲規則。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="section-heading">
+          <h2>用案例練習，不背產業清單</h2>
+          <p>新手看關鍵字，進階看因果，高手看失效條件。</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <strong>生技股突然大漲</strong>
+            <p>先查是不是 FDA 里程碑、臨床數據、授權金，還是單純題材發酵。</p>
+          </article>
+          <article class="case-card">
+            <strong>晶片股毛利率上升</strong>
+            <p>拆成產品組合、先進製程、產能利用率、庫存循環，不要只看營收成長。</p>
+          </article>
+          <article class="case-card">
+            <strong>金融股配息漂亮</strong>
+            <p>同時看淨利差、呆帳、資本適足率與景氣循環，殖利率不是唯一答案。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>市場白話文</strong>
+        <p>金融教育內容，不構成投資建議。先拆商業模式，再看價格。</p>
+      </div>
+      <a href="#top">回到上方</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -442,6 +442,141 @@ const productProfiles = [
   },
 ];
 
+const sectorAcademy = [
+  {
+    id: "biotech",
+    name: "生技醫療",
+    code: "FDA / PIPELINE",
+    plain: "生技股常常不是看現在賺多少，而是看藥物或醫材能不能通過關鍵關卡。",
+    question: "這家公司下一個真正會改變價值的時間點是什麼？",
+    chain: [
+      ["研發平台", "找靶點、做候選藥物，價值來自科學假設與專利。"],
+      ["臨床試驗", "一期看安全，二期看初步效果，三期看大規模證據。"],
+      ["法規審查", "FDA、EMA、TFDA 等機構決定能不能上市。"],
+      ["製造量產", "GMP、品質控管與供應穩定度會影響商業化。"],
+      ["銷售通路", "醫院、保險給付、醫師採用速度決定放量。"],
+    ],
+    metrics: ["臨床期別", "主要終點是否達標", "現金可燒幾季", "授權金與里程碑金", "PDUFA 日期"],
+    moats: [
+      ["專利與資料保護", "藥物資料與專利期能保護一段時間，但到期後會面對學名藥。"],
+      ["法規認證", "核准本身就是門檻，但單一產品失敗也可能重傷公司。"],
+      ["醫師與保險採用", "療效、價格、給付與醫師習慣決定護城河能不能商業化。"],
+    ],
+    risks: ["臨床失敗", "FDA 退件", "增資稀釋", "單一產品依賴"],
+    task: "看一家公司時，先畫出候選產品管線，標出每個產品的臨床期別與下一個催化事件。",
+  },
+  {
+    id: "semiconductor",
+    name: "半導體",
+    code: "SUPPLY CHAIN",
+    plain: "晶片不是一家公司完成的魔法，而是一條從設計、製造、封測到終端需求的長鏈。",
+    question: "它是在賣腦袋、賣產能、賣設備，還是賣景氣循環？",
+    chain: [
+      ["IC 設計", "像畫建築圖，重點是架構、IP、客戶需求與產品迭代。"],
+      ["晶圓代工", "像高精度工廠，良率、製程節點、產能利用率是核心。"],
+      ["設備材料", "賣鏟子給挖金礦的人，受資本支出循環影響很大。"],
+      ["封裝測試", "把晶片接出來、測出來，先進封裝越來越關鍵。"],
+      ["品牌與終端", "手機、伺服器、車用、AI 需求決定上游拉貨速度。"],
+    ],
+    metrics: ["毛利率", "產能利用率", "庫存天數", "資本支出", "先進製程占比", "客戶集中度"],
+    moats: [
+      ["製程與良率", "同樣做得到，不代表做得穩、做得便宜、做得大量。"],
+      ["客戶黏著", "晶片驗證週期長，客戶不會輕易換供應商。"],
+      ["規模與資本", "先進製程需要巨額投資，越領先越能吸引大客戶。"],
+    ],
+    risks: ["景氣循環", "庫存修正", "客戶砍單", "地緣政治與出口管制"],
+    task: "挑一檔晶片股，先判斷它在五段產業鏈中的哪一段，再找最能代表它的兩個指標。",
+  },
+  {
+    id: "financials",
+    name: "金融",
+    code: "SPREAD / CREDIT",
+    plain: "金融股賺的是資金流動的差價與服務費，但景氣差時也會承擔信用風險。",
+    question: "它的獲利來自利差、手續費、投資收益，還是一次性評價利益？",
+    chain: [
+      ["存款與資金", "資金成本越低，越有空間放款或投資。"],
+      ["放款與信用", "房貸、企業貸、消金貸會帶來利息，也帶來呆帳風險。"],
+      ["財富管理", "基金、保險、信託與手續費讓收入更分散。"],
+      ["投資部位", "債券、股票與匯率會影響淨值和獲利波動。"],
+      ["監理資本", "資本適足率決定能不能擴張，也影響配息能力。"],
+    ],
+    metrics: ["淨利差 NIM", "逾放比", "呆帳覆蓋率", "資本適足率", "手續費收入占比"],
+    moats: [
+      ["存款基礎", "低成本且穩定的存款，是金融業很實在的護城河。"],
+      ["通路與信任", "客戶不常換銀行，品牌信任會降低流失率。"],
+      ["風控能力", "景氣好時看不出差異，景氣差時才知道誰真的會控風險。"],
+    ],
+    risks: ["利率反轉", "信用循環惡化", "金融監理", "投資部位評價損失"],
+    task: "讀金融股時，把獲利拆成利差、手續費、投資收益，再看哪一塊最不穩。",
+  },
+  {
+    id: "ev",
+    name: "電動車",
+    code: "BATTERY / PLATFORM",
+    plain: "電動車不是只有整車廠，還有電池、功率元件、充電、軟體與供應鏈議價力。",
+    question: "它是品牌故事，還是真正在供應鏈裡拿得到利潤？",
+    chain: [
+      ["材料與電池", "鋰、鎳、正負極、電芯成本影響整車毛利。"],
+      ["功率半導體", "逆變器、SiC、IGBT 影響效率與續航。"],
+      ["零組件", "馬達、熱管理、車用鏡頭與線束決定供應鏈位置。"],
+      ["整車平台", "設計、品牌、製造效率與售後網路形成差異。"],
+      ["充電與軟體", "充電網路、車載系統與訂閱服務影響長期價值。"],
+    ],
+    metrics: ["交車量", "單車毛利", "電池成本", "產能利用率", "訂單能見度"],
+    moats: [
+      ["平台規模", "車款共用平台能降低成本，放大量後毛利才看得出來。"],
+      ["供應鏈掌握", "關鍵零件穩定供應，能避免價格與交期被卡住。"],
+      ["軟體生態", "若能持續收費，估值邏輯就不只像傳統製造業。"],
+    ],
+    risks: ["價格戰", "補貼退場", "電池原料波動", "召回與品質問題"],
+    task: "比較兩家公司時，不只看交車量，也看單車毛利和價格戰下誰還能賺。",
+  },
+  {
+    id: "energy",
+    name: "能源",
+    code: "COMMODITY / CAPEX",
+    plain: "能源股常跟商品價格、產能投資和政策一起擺動，現金流可能很強也很循環。",
+    question: "公司賺的是開採成本優勢、煉油價差，還是綠能長約？",
+    chain: [
+      ["上游開採", "油氣、煤、礦的成本曲線決定價格下跌時誰能撐。"],
+      ["中游運輸", "管線、儲存、船運重視長約與利用率。"],
+      ["下游煉化", "原料成本與產品售價差距決定利潤。"],
+      ["電力與綠能", "長約、躉購費率與政策穩定度影響估值。"],
+      ["用戶需求", "工業、運輸、天氣與景氣會改變消耗量。"],
+    ],
+    metrics: ["商品價格", "開採成本", "煉油價差", "自由現金流", "負債比", "長約比例"],
+    moats: [
+      ["低成本資產", "商品價格不好時，成本最低的人最有生存力。"],
+      ["長約與基礎建設", "管線、電網、儲能不是想蓋就能蓋，許可和位置很重要。"],
+      ["資本紀律", "能源業最怕景氣好時亂擴產，景氣差時現金流崩掉。"],
+    ],
+    risks: ["商品價格暴跌", "政策轉向", "環保成本", "資本支出過高"],
+    task: "先判斷公司比較像商品循環股，還是穩定長約現金流公司。",
+  },
+  {
+    id: "consumer",
+    name: "消費品牌",
+    code: "BRAND / CHANNEL",
+    plain: "消費股看起來最生活化，但真正要看品牌、通路、定價權與庫存管理。",
+    question: "它漲價後客人還買嗎？通路變了它還碰得到消費者嗎？",
+    chain: [
+      ["產品設計", "品牌定位、功能、包裝與體驗決定差異化。"],
+      ["製造與採購", "成本、品質與交期影響毛利。"],
+      ["通路", "電商、量販、門市、經銷商決定曝光與抽成。"],
+      ["行銷會員", "廣告效率、回購率與會員資料影響長期價值。"],
+      ["庫存周轉", "賣不掉會折價，折價會傷品牌和毛利。"],
+    ],
+    metrics: ["同店銷售", "毛利率", "庫存週轉", "廣告投報", "回購率", "客單價"],
+    moats: [
+      ["品牌定價權", "能漲價又不掉量，才是真的有品牌力。"],
+      ["通路掌握", "直營與會員資料越強，越不容易被平台抽成控制。"],
+      ["供應鏈速度", "流行變化快，補貨慢或庫存錯就會吃掉獲利。"],
+    ],
+    risks: ["庫存打折", "流行退燒", "通路費用上升", "消費景氣放緩"],
+    task: "看一個品牌時，先問它的成長是開更多店、賣更貴，還是老客戶買更多。",
+  },
+];
+
 const navButton = document.querySelector(".menu-button");
 const nav = document.querySelector(".site-nav");
 const dailyCard = document.querySelector("#daily-card");
@@ -468,6 +603,8 @@ const scenarioSelect = document.querySelector("#scenario-select");
 const scenarioResult = document.querySelector("#scenario-result");
 const quizButtons = document.querySelectorAll(".quiz-options button");
 const quizFeedback = document.querySelector("#quiz-feedback");
+const sectorTabs = document.querySelector("#sector-tabs");
+const sectorBoard = document.querySelector("#sector-board");
 
 let activeFilter = "all";
 let savedTerms = readJsonStorage("marketBaihua.savedTerms", []);
@@ -717,6 +854,89 @@ productList?.addEventListener("click", (event) => {
   renderProductLab(button.dataset.product || "stock");
 });
 
+function renderSectorAcademy(activeId = "semiconductor") {
+  if (!sectorTabs || !sectorBoard) return;
+  const active = sectorAcademy.find((item) => item.id === activeId) || sectorAcademy[1];
+
+  sectorTabs.innerHTML = sectorAcademy
+    .map(
+      (item) => `
+        <button class="sector-tab ${item.id === active.id ? "active" : ""}" type="button" data-sector="${item.id}">
+          <span>${escapeHtml(item.name)}</span>
+          <small>${escapeHtml(item.code)}</small>
+        </button>
+      `
+    )
+    .join("");
+
+  sectorBoard.innerHTML = `
+    <div class="sector-board-head">
+      <div>
+        <span>${escapeHtml(active.code)}</span>
+        <h3>${escapeHtml(active.name)}</h3>
+        <p>${escapeHtml(active.plain)}</p>
+      </div>
+      <aside>
+        <strong>先問一句</strong>
+        <p>${escapeHtml(active.question)}</p>
+      </aside>
+    </div>
+
+    <div class="sector-chain" aria-label="${escapeHtml(active.name)}產業鏈">
+      ${active.chain
+        .map(
+          ([title, body], index) => `
+            <article>
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <h4>${escapeHtml(title)}</h4>
+              <p>${escapeHtml(body)}</p>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+
+    <div class="sector-insight-grid">
+      <section class="sector-panel">
+        <h4>看什麼數字</h4>
+        <div class="metric-list">
+          ${active.metrics.map((metric) => `<span>${escapeHtml(metric)}</span>`).join("")}
+        </div>
+      </section>
+      <section class="sector-panel">
+        <h4>護城河怎麼看</h4>
+        <dl class="moat-list">
+          ${active.moats
+            .map(
+              ([title, body]) => `
+                <div>
+                  <dt>${escapeHtml(title)}</dt>
+                  <dd>${escapeHtml(body)}</dd>
+                </div>
+              `
+            )
+            .join("")}
+        </dl>
+      </section>
+      <section class="sector-panel risk-radar">
+        <h4>風險雷達</h4>
+        <ul>${active.risks.map((risk) => `<li>${escapeHtml(risk)}</li>`).join("")}</ul>
+      </section>
+    </div>
+
+    <div class="sector-task">
+      <span>今日練習</span>
+      <p>${escapeHtml(active.task)}</p>
+    </div>
+  `;
+}
+
+sectorTabs?.addEventListener("click", (event) => {
+  const button = event.target.closest(".sector-tab");
+  if (!(button instanceof HTMLButtonElement)) return;
+  renderSectorAcademy(button.dataset.sector || "semiconductor");
+});
+
 quizButtons.forEach((button) => {
   button.addEventListener("click", () => {
     quizButtons.forEach((item) => item.classList.remove("correct", "wrong"));
@@ -872,5 +1092,6 @@ updateLeverage();
 renderScenario();
 renderRoadmap();
 renderProductLab();
+renderSectorAcademy();
 renderLearnerPlan();
 loadDailyBrief();

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "mkdir -p dist/assets && cp index.html learn.html dictionary.html tools.html news.html styles.css script.js robots.txt sitemap.xml _headers _redirects dist/ && cp assets/favicon.svg assets/market-desk.jpg dist/assets/",
+    "build": "mkdir -p dist/assets && cp index.html learn.html sectors.html dictionary.html tools.html news.html styles.css script.js robots.txt sitemap.xml _headers _redirects dist/ && cp assets/favicon.svg assets/market-desk.jpg dist/assets/",
     "preview": "python3 -m http.server 4173",
     "dev:cf": "npm run build && npx wrangler pages dev dist --port 8788 --compatibility-date=2026-05-18",
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name market-baihua"
